@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width" ,initial-scale=1.0>
+	<title>border动态输入框</title>
+	<link rel="stylesheet" type="text/css" href="border-ant.css">
+	<link rel="stylesheet" type="text/css" href="border.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<video autoplay="autoplay" class="fillWidth" muted='muted'>
+			<source src="pre.mp4" type="video/mp4" />
+		</video>
+		<video autoplay="autoplay" loop class="loop" muted='muted'>
+			<source src="loop.mp4" type="video/mp4" />
+		</video>
+		<svg class="bg"></svg>
+		<div class="login">
+			<div class="box username forwardBorderTrain">
+				<span class="ui-border-element">
+					<input type="text" name="username" placeholder="请输入登陆账号">
+				</span>
+			</div>
+
+			<div class="box password forwardBorderTrain">
+				<span class="ui-border-element">
+					<input type="password" name="password" placeholder="请输入登陆密码">
+				</span>
+			</div>
+			<div class="submit bottom-rightStart-burst">
+				<span class="ui-border-element">
+					<button>登&nbsp;&nbsp;&nbsp;录</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var fillWidth = document.querySelector(".fillWidth");
+		var loop = document.querySelector(".loop");
+		fillWidth.addEventListener('ended', function () {
+			fillWidth.style.display = "none";
+			loop.style.display = "block";
+			setTimeout(function(){
+				document.querySelector("input[name='username']").focus();
+			},1800);
+		}, false);
+	</script>
+
+</body>
+
+</html>

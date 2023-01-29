@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		body,
+		html {
+			height: 100%;
+			width: 100%;
+		}
+
+		.pt_bg {
+			background: url(./image/index_bg.png) no-repeat;
+			background-size: cover;
+			/* background-size: contain; */
+			/* background-attachment: fixed; */
+			background-repeat: no-repeat;
+			background-position: center center;
+			height: 130%;
+			width: 100%;
+			position: absolute;
+			z-index: -100;
+			opacity: 0;
+		}
+
+		.b {
+			border: 1px solid rgb(243, 18, 142);
+		}
+
+		.b1 {
+			border: 1px solid rgb(18, 243, 67);
+		}
+
+		/* .pt_pt_title {
+				font-family: "优设标题黑";
+				font-size: 250%;
+				margin-left: 10px;
+			} */
+		/* input[type="radio"]:nth-of-type(n):checked~.pt_nav li {
+			transform: translateX(calc(counters(section)*100%));
+		} */
+		input[type="radio"] {
+			display: none;
+		}
+
+		input[type="radio"]:nth-of-type(1):checked~.pt_nav li {
+			transform: translateX(0%);
+		}
+
+		input[type="radio"]:nth-of-type(2):checked~.pt_nav li {
+			transform: translateX(-100%);
+		}
+
+		input[type="radio"]:nth-of-type(3):checked~.pt_nav li {
+			transform: translateX(-200%);
+		}
+
+		input[type="radio"]:nth-of-type(4):checked~.pt_nav li {
+			transform: translateX(-300%);
+		}
+
+		input[type="radio"]:nth-of-type(5):checked~.pt_nav li {
+			transform: translateX(-400%);
+		}
+
+		input[type="radio"]:nth-of-type(6):checked~.pt_nav li {
+			transform: translateX(-500%);
+		}
+
+		input[type="radio"]:nth-of-type(7):checked~.pt_nav li {
+			transform: translateX(-600%);
+		}
+
+		input[type="radio"]:nth-of-type(8):checked~.pt_nav li {
+			transform: translateX(-700%);
+		}
+
+		input[type="radio"]:nth-of-type(9):checked~.pt_nav li {
+			transform: translateX(-800%);
+		}
+
+		input[type="radio"]:nth-of-type(10):checked~.pt_nav li {
+			transform: translateX(-900%);
+		}
+
+		input[type="radio"]:nth-of-type(11):checked~.pt_nav li {
+			transform: translateX(-1000%);
+		}
+
+		input[type="radio"]:nth-of-type(12):checked~.pt_nav li {
+			transform: translateX(-1100%);
+		}
+
+		/* input[type="radio"]:nth-of-type(1):checked~#rad1 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(2):checked~#rad2 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(3):checked~#rad3 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(4):checked~#rad4 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(5):checked~#rad5 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(6):checked~#rad6 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(7):checked~#rad7 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(8):checked~#rad8 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(9):checked~#rad9 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(10):checked~#rad10 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(11):checked~#rad11 {
+			opacity: 1;
+			display:block;
+		}
+
+		input[type="radio"]:nth-of-type(12):checked~#rad12 {
+			opacity: 1;
+			display:block;
+		} */
+
+		.pt_cardbutton {
+			position: absolute;
+			/* border: #fff 1px solid; */
+			/* margin-top: 5vh; */
+			top: -20%;
+			/* top: 2%; */
+			cursor: pointer;
+			width: 2%;
+			height: 276px;
+			z-index: 5;
+			transition: transform 0.2s ease-in-out;
+			transform: scale(0.8);
+			animation-duration: paused;
+		}
+
+		.pt_cl {
+
+			position: absolute;
+			left: 300px;
+			background: url(./image/left1.5.png) 0 50% no-repeat;
+			background-size: contain;
+		}
+
+		.pt_cr {
+
+			position: absolute;
+			right: 300px;
+			background: url(./image/right1.2.png) 0 50% no-repeat;
+			background-size: contain;
+		}
+
+		.pt_cr:hover,
+		.pt_cl:hover {
+			transform: scale(1.2);
+		}
+
+		.menultor {
+			animation: itemlgd 5s ease-in-out;
+			animation-fill-mode: forwards;
+
+		}
+
+		@keyframes itemlgd {
+			0% {
+				transform: translateX(0);
+			}
+
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+
+
+		.menurtol {
+			animation: itemrgd 5s ease-in-out;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes itemrgd {
+			0% {
+				transform: translateX(-100%);
+			}
+
+			100% {
+				transform: translateX(0);
+			}
+		}
+
+		.pt_body {
+			/* background: url(./image/midmemu.png) no-repeat; */
+			background-size: 100%;
+			min-height: 75vh;
+			width: 80%;
+			padding: 2%;
+		}
+
+		.pt_midmenu {
+			/* height: 95%; */
+			width: 95%;
+			overflow: hidden;
+			overflow-y: scroll;
+			margin: 2% 40px 0;
+			overflow: -moz-scrollbars-none;
+			overflow: -moz-scrollbars-none;
+		}
+
+		.pt_midmenu::-webkit-scrollbar {
+			display: none;
+		}
+
+		.pt_body ul {
+			/* height: 100%; */
+			display: flex;
+			counter-reset: section;
+			/* width: 1200%;*/
+		}
+
+
+
+		.pt_body ul li {
+			width: 100%;
+			/* height: 100%; */
+			/* border: #03fa18 1px solid; */
+			font-size: 100px;
+			color: #fff;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			transition: 0.5s transform ease-in-out;
+			/* overflow-y: scroll; */
+			/* padding: 5%; */
+			/* transform: translate(-1100%,0); */
+
+		}
+
+		.pt_midmenu_card {
+			width: 90%;
+			display: flex;
+			/* flex-direction: column; */
+			padding: 0 10%;
+			margin-top: 2%;
+			/* position: relative; */
+			/* justify-content: space-around; */
+		}
+
+		.pt_title {
+			/* border: 0.3vh solid #12C1EF;
+			border-bottom:0.5vh solid #125f92;
+			background-color: #125f92; */
+			/* box-shadow: 0 0 2vh #0476B3; */
+			min-width: 5vh;
+			max-width: 100vh;
+			width: auto;
+			/* position: absolute; */
+			font-size: 3vh;
+			color: #12C1EF;
+			border: 0.3vh solid #12C1EF;
+			background-color: #125f92;
+			text-align: left;
+			display: flex;
+			align-items: center;
+			/* justify-content: center; */
+			margin-left: 1.5vh;
+			position: relative;
+			padding: 0 2vh;
+			border-radius: 1vh 1vh 0 0;
+			left: -2.5vh;
+			z-index: 20;
+			transition: 1s min-width ease-in-out;
+
+		}
+
+		.pt_title_index {
+			border-bottom: 0.5vh solid #125f92;
+			position: relative;
+			top: 0.5vh;
+		}
+
+		.pt_title #icon {
+			z-index: 20;
+			font-size: 7.5vh;
+			line-height: 5vh;
+			/* position: absolute; */
+			height: 5vh;
+			width: 5vh;
+			text-align: center;
+			/* margin-bottom: 2vh; */
+			/* margin-right: 1vh; */
+
+		}
+
+		.pt_title .pt_text {
+			white-space: nowrap;
+			/* width: 0; */
+			max-width: 0;
+			opacity: 0;
+			transition: 0.5s opacity ease-in-out, 1s max-width ease-in-out;
+
+		}
+
+		.pt_title:hover {
+			min-width: 10vh;
+		}
+
+		.pt_title:hover>.pt_text {
+			width: auto;
+			max-width: 100vh;
+			opacity: 1;
+		}
+
+		.pt_midmenu_box {
+			/* background: url(./image/midmenu.png) no-repeat; */
+
+			/* background-color: #005FA0; */
+			background-color: #125f92;
+			min-height: 65vh;
+			width: 90%;
+			background-size: 100%;
+			padding: 1% 2.5%;
+			font-size: 2.5vh;
+			display: flex;
+			/* margin-top: 4.5vh; */
+			flex-wrap: wrap;
+			border-radius: 1vh;
+			border: 0.3vh solid #12C1EF;
+			box-shadow: 0 0 1.5vh #0476B3;
+			align-content: flex-start;
+			justify-content: flex-start;
+			display: none;
+		}
+
+		.pt_midmenuitem {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			cursor: pointer;
+			margin: 1.5vh;
+			padding: 0.5vh 1vh;
+			border: 2px solid #12C1EF;
+			box-shadow: 0 0 15px #0476B3;
+			background-color: #005FA0;
+			overflow: hidden;
+			min-width: 20vh;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.pt_midmenuitem:hover {
+			transform: scale(1.2);
+		}
+
+		.pt_midmenuitem #icon {
+			width: 5vh;
+			height: 5vh;
+			font-size: 8vh;
+			line-height: 5vh;
+			text-align: center;
+			color: #12C1EF;
+		}
+
+		.pt_nav {
+			display: flex;
+			justify-content: center;
+			position: absolute;
+			top: -225%;
+			/* top: 20%; */
+			width: 100%;
+			margin-top: 5%;
+			/* background-color: pink; */
+		}
+
+		.pt_nav_a {
+			animation: bodya 0.75s ease-in-out forwards;
+		}
+
+		@keyframes bodya {
+			0% {
+				top: -225%;
+			}
+
+			60% {
+				top: 27%;
+			}
+
+			100% {
+				top: 20%;
+			}
+		}
+
+		.pt_nav_b {
+			animation: bodyb 0.75s ease-in-out forwards;
+		}
+
+		@keyframes bodyb {
+			0% {
+				top: 20%;
+			}
+
+			40% {
+				top: 27%;
+			}
+
+			100% {
+				top: -225%;
+			}
+		}
+
+
+		.pt_menu {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			position: absolute;
+			top: -30%;
+			/* top: 2%; */
+			/* left: 12.6%; */
+			user-select: none;
+			z-index: 1;
+			/* background: url(./image/menu1.3.png) no-repeat; */
+			background-size: 100%;
+			/* padding: 3% 2%; */
+			/* height: 20vh; */
+			/* overflow: hidden; */
+		}
+
+		.pt_menu_shade {
+			/* border: 2px solid rgb(252, 5, 178); */
+			margin-top: 90px;
+			overflow: hidden;
+			width: 60%;
+			height: 276px;
+			padding: 0 21%;
+			height: 50%;
+			padding: 1%;
+			z-index: 10;
+		}
+
+		.pt_menuitems {
+			/* border: 1px solid pink; */
+			width: 105vw;
+			height: 110.4px;
+			display: flex;
+			justify-content: space-between;
+			/* position: absolute; */
+			/* transform: translateX(-0%); */
+			transition: transform 0.5s ease-in-out;
+		}
+
+		.pt_menuitem {
+			display: flex;
+			justify-content: space-around;
+			flex-direction: column;
+			align-items: center;
+			cursor: pointer;
+			padding: 5px;
+			border: 0.3vh solid #12C1EF;
+			box-shadow: 0 0 15px #0476B3;
+			background-color: #005FA0;
+			overflow: hidden;
+			transition: transform 0.2s ease-in-out;
+			width: 4.5%;
+			height: 70%;
+		}
+
+		.pt_menuitem #icon {
+			width: 100%;
+			font-size: 8vh;
+			transform: scale(0.8);
+			height: 30%;
+			line-height: 30%;
+			text-align: center;
+			color: #12C1EF;
+			text-shadow: 0 0 5px #0476B3, 0 0 5px #12C1EF;
+			transition: 0.5s height ease-in-out, 0.5s line-height ease-in-out, 0.3s transform ease-in-out;
+		}
+
+		.pt_menuitem span {
+			color: #12C1EF;
+			font-size: 1.6vh;
+			width: 100%;
+			font-weight: 600;
+			text-align: center;
+			overflow: hidden;
+			text-shadow: 0 0 5px #0476B3, 0 0 5px #12C1EF;
+			/* transition: 0.3s height ease-in-out,0.3s line-height ease-in-out; */
+		}
+
+		.pt_menuitem:hover {
+			transform: scale(1.2);
+		}
+
+		.pt_menuitem:hover>#icon {
+			transform: scale(1);
+			height: 100%;
+			margin-bottom: 20%;
+			line-height: 6.5vh;
+		}
+
+		/* .pt_menuitem_a{
+			animation: mitemani_a 0.75s ease-in-out forwards;
+		}
+		@keyframes mitemani_a{
+			0%{width: 0;}
+			60%{width: ;}
+		} */
+
+		.pt_menu_a {
+			animation: animasion_a 0.75s ease-in-out forwards;
+		}
+
+		@keyframes animasion_a {
+			0% {
+				top: -30%;
+			}
+
+			60% {
+				top: 6%;
+			}
+
+			100% {
+				top: 2%;
+			}
+		}
+
+		.pt_menu_b {
+			animation: animasion_b 0.75s ease-in-out forwards;
+		}
+
+		@keyframes animasion_b {
+			0% {
+				top: 2%;
+			}
+
+			40% {
+				top: 4%;
+			}
+
+			100% {
+				top: -30%;
+			}
+		}
+
+		.pt_menu_lbutton {
+			width: 2.5vw;
+			height: 5vh;
+			position: absolute;
+			top: 5%;
+			left: 2.5%;
+			z-index: 2;
+			cursor: pointer;
+			animation: 5s change linear infinite;
+
+			/* display: none; */
+		}
+
+		.pt_scale_a {
+			animation: 1s scale_a ease-in-out;
+			transform: scale(0.001);
+		}
+
+		.pt_scale_b {
+			animation: 1s scale_b ease-in-out, 5s 1s change linear infinite;
+			/* animation: 5s 1s change linear infinite; */
+			transform: scale(1);
+		}
+
+		@keyframes scale_a {
+			0% {
+				transform: scale(1);
+			}
+
+			40% {
+				transform: scale(1.5);
+			}
+
+			100% {
+				transform: scale(0.001);
+			}
+		}
+
+		@keyframes scale_b {
+			0% {
+				transform: scale(0.001);
+			}
+
+			40% {
+				transform: scale(1.5);
+			}
+
+			100% {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes change {
+
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			50% {
+				-webkit-transform: rotate(180deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+
+		.pt_lb_shadow {
+			filter: blur(0.5vw);
+			/* background-image: linear-gradient(180deg, #9b7ef8, #82ac26, #ffa22a,#ff662a); */
+			background: url(./image/ptlogo.png);
+			width: 2.5vw;
+			z-index: -10;
+			height: 5vh;
+			position: absolute;
+			top: 5%;
+			left: 2.5%;
+			animation: 5s change linear infinite;
+		}
+
+		.pt_menu_rbutton {
+			/* background: url(./image/bt.png) no-repeat; */
+			background-size: contain;
+			position: absolute;
+			top: -20%;
+			/* top: 2%; */
+			left: 49%;
+			/* margin-left: 49vw;
+			margin-right: 49vw; */
+			width: 2vw;
+			height: 8vh;
+			z-index: 20;
+		}
+
+		.pt_menu_rbutton_icon {
+			font-size: 5vh;
+			/* line-height: 5vw; */
+			background: url(./image/close1.2.svg);
+			fill: #12C1EF;
+			background-size: cover;
+			height: 2vw;
+			width: 2vw;
+			text-align: center;
+			user-select: none;
+			margin-top: 1vw;
+			color: #12C1EF;
+			text-shadow: 0 0 1vw #0476B3, 0 0 1vw #12C1EF;
+			cursor: pointer;
+			transition: transform 0.5s ease-in-out;
+		}
+
+		.pt_menu_rbutton_icon:hover {
+			transform: scale(1.2) rotate(360deg);
+			/* transform: ; */
+		}
+
+		.hidden {
+			animation: 0.5s pt_hidden ease-in-out;
+			opacity: 0;
+		}
+
+		@keyframes pt_hidden {
+			0% {
+				opacity: 1;
+			}
+
+			60% {
+				opacity: 0.6;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.block {
+			animation: 0.5s pt_block ease-in-out;
+			opacity: 1;
+		}
+
+		@keyframes pt_block {
+			0% {
+				opacity: 0;
+			}
+
+			95% {
+				opacity: 1;
+			}
+
+			98% {
+				opacity: 0.8;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.pt_float {
+			position: absolute;
+		}
+
+		.pt-menubg {
+			position: absolute;
+			left: 300px;
+			right: 300px;
+			min-height: 276px;
+			display: flex;
+		}
+
+		.pt-menubg-left {
+			background: url(./image/menuAll.png) 0 -552px no-repeat;
+			width: 276px;
+			height: 276px;
+		}
+
+		.pt-menubg-center {
+			display: flex;
+			flex: 1;
+		}
+
+		.pt-menubg-middle {
+			background: url(./image/menuAll.png) 0 0 no-repeat;
+			width: 276px;
+			height: 276px;
+		}
+
+		.pt-menubg-space {
+			background: url(./image/menuAll.png) 0 -828px repeat-x;
+			flex: 1;
+		}
+
+		.pt-menubg-right {
+			background: url(./image/menuAll.png) 0 -276px no-repeat;
+			width: 276px;
+			height: 276px;
+		}
+
+		@media screen and (min-width:3400px) {
+			.pt-menubg {
+				position: absolute;
+				left: 300px;
+				right: 300px;
+				height: 552px;
+				display: flex;
+			}
+
+			.pt-menubg-left {
+				background: url(./image/menuAll.png) 0 -1106px no-repeat;
+				background-size: 100%;
+				width: 552px;
+				height: 552px;
+			}
+
+			.pt-menubg-center {
+				display: flex;
+				flex: 1;
+			}
+
+			.pt-menubg-middle {
+				background: url(./image/menuAll.png) 0 -2px no-repeat;
+				background-size: 100%;
+				width: 552px;
+				height: 552px;
+			}
+
+			.pt-menubg-space {
+				background: url(./image/menuAll.png) 0 -1658px repeat-x;
+				background-size: 552px;
+				flex: 1;
+			}
+
+			.pt-menubg-right {
+				background: url(./image/menuAll.png) 0 -553px no-repeat;
+				background-size: 100%;
+				width: 552px;
+				height: 552px;
+			}
+
+			.pt_menu_shade {
+				/* border: 2px solid rgb(252, 5, 178); */
+				margin-top: 180px;
+				overflow: hidden;
+				width: 74%;
+				height: 552px;
+				padding: 0 20%;
+				/* height: 50%; */
+				padding: 1%;
+				z-index: 10;
+			}
+
+			.pt_menuitems {
+				/* border: 1px solid pink; */
+				width: 105vw;
+				height: 8vh;
+				display: flex;
+				justify-content: space-between;
+				/* position: absolute; */
+				/* transform: translateX(-0%); */
+				transition: transform 1s ease-in-out;
+			}
+
+			.pt_menuitem {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: column;
+				align-items: center;
+				cursor: pointer;
+				padding: 5px;
+				padding-top: 15px;
+				border: 0.3vh solid #12C1EF;
+				box-shadow: 0 0 15px #0476B3;
+				background-color: #005FA0;
+				overflow: hidden;
+				transition: transform 0.2s ease-in-out;
+				width: 4.5%;
+				height: 80%;
+			}
+
+			.pt_cardbutton {
+				position: absolute;
+				/* border: #fff 1px solid; */
+				/* margin-top: 5vh; */
+				top: -20%;
+				/* top: 2%; */
+				cursor: pointer;
+				width: 2%;
+				height: 552px;
+				z-index: 5;
+				margin-top: 20px;
+				transition: transform 0.2s ease-in-out;
+				transform: scale(0.8);
+			}
+
+			.pt_midmenuitem {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				cursor: pointer;
+				margin: 1.5vh;
+				padding: 0.5vh 1vh;
+				border: 2px solid #12C1EF;
+				box-shadow: 0 0 15px #0476B3;
+				background-color: #005FA0;
+				overflow: hidden;
+				min-width: 22.5vh;
+				min-height: 10vh;
+				transition: transform 0.3s ease-in-out;
+			}
+		}
+
+		/* 		 
+		 .pt-menubg {
+			position: absolute;
+			height: 30vh;
+			text-align: center;
+			width: 74vw;
+			display: flex;
+			 transform: scale(0.8); 
+		}
+		*/
+
+		/* .pt-menubg-left {
+			background: url(./image/menuAll.png) 0 66.7% no-repeat;
+
+			width: 10vw;
+			height: 30vh;
+			background-size: 160%;
+		}
+
+		.pt-menubg-center {
+			background: url(./image/menuAll.png) 50% 0 no-repeat;
+			width: 10vw;
+			height: 30vh;
+			background-size: 160%;
+		}
+
+		.pt-menubg-line {
+			background: url(./image/menuAll.png) 0% 100% repeat-x;
+			background-size: 70%;
+			flex: 1;
+		}
+
+		.pt-menubg-right {
+			background: url(./image/menuAll.png) 100% 33.35% no-repeat;
+			background-size: 160%;
+			width: 10vw;
+			height: 30vh;
+		}  */
+		.pt_midmenu_bg {
+			position: absolute;
+			display: flex;
+			width: 80%;
+			height: 100%;
+			flex-direction: column;
+			/* transform: scale(0.5); */
+		}
+
+		.pt_mnbg_angle {
+			width: 580px;
+			height: 372px;
+
+			/* border: 2px solid #eb03a5; */
+		}
+
+		.pt_mnbg_side {
+			/* display: flex; */
+			flex: 1;
+			/* border: 2px solid #03eb22; */
+		}
+
+		.pt_midbg_top {
+			display: flex;
+			width: 100%;
+		}
+
+		.pt_midbg_tleft {
+			background: url(./image/midmenutopleft.png) 0 3px no-repeat;
+		}
+
+		.pt_midbg_tmid {
+			background: url(./image/midmenuall.png) 50% -358px repeat-x;
+		}
+
+		.pt_midbg_tright {
+			background: url(./image/midmenuall.png) 0 -734px no-repeat;
+		}
+
+		.pt_midbg_mid {
+			display: flex;
+			width: 100%;
+			height: calc(100% - 744px);
+		}
+
+		.pt_midbg_mleft {
+			background: url(./image/midmenu3.1.png) -0.6px 50% repeat-y;
+			width: 580px;
+		}
+
+		.pt_midbg_mmid {
+			background: url(./image/midmenuall2.1.png) 0 -2976px repeat;
+		}
+
+		.pt_midbg_mright {
+			background: url(./image/midmenu3.1.png) -581px 0 repeat-y;
+			width: 580px;
+		}
+
+		.pt_midbg_bottom {
+			display: flex;
+			width: 100%;
+		}
+
+		.pt_midbg_bleft {
+			background: url(./image/midmenuall.png) -1px -2226px no-repeat;
+		}
+
+		.pt_midbg_bmid {
+			background: url(./image/midmenuall.png) 20px -1854px repeat-x;
+		}
+
+		.pt_midbg_bright {
+			background: url(./image/midmenuall.png) 0 -1482px no-repeat;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="pt_bg">
+	</div>
+	<nav>
+		<input name="r" id="r1" type="radio" checked><input name="r" id="r2" type="radio"><input name="r" id="r3"
+			type="radio"><input name="r" id="r4" type="radio"><input name="r" id="r5" type="radio">
+		<input id="r6" name="r" type="radio"><input name="r" id="r7" type="radio"><input name="r" id="r8"
+			type="radio"><input name="r" id="r9" type="radio"><input name="r" id="r10" type="radio">
+		<input name="r" id="r11" type="radio"><input name="r" id="r12" type="radio">
+		<input name="card" id="cl" type="radio" class="pt_card_cl" checked><input name="card" id="cr" class="pt_card_cr"
+			type="radio">
+		<label for="cl" class="pt_cardbutton pt_cl"></label><label for="cr" class="pt_cardbutton pt_cr"></label>
+		<div class="pt_menu">
+			<div class="pt-menubg">
+				<div class="pt-menubg-left"></div>
+				<div class="pt-menubg-center">
+					<div class="pt-menubg-space"></div>
+					<div class="pt-menubg-middle"></div>
+					<div class="pt-menubg-space"></div>
+				</div>
+				<div class="pt-menubg-right"></div>
+				<!-- <div class="pt-menubg-content">4</div> -->
+			</div>
+			<div class="pt_menu_shade">
+				<div class="pt_menuitems">
+					<label class="pt_menuitem" for="r1">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r2">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r3">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r4">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r5">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r6">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r7">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r8">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r9">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r10">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r11">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+					<label class="pt_menuitem" for="r12">
+						<div id="icon">¤</div><span class="">协同办公</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="pt_menu_lbutton">
+			<img src="./image/ptlogo1.1.png" alt="" style="width:100%;">
+			<div class="pt_lb_shadow" style="z-index: -1;"></div>
+		</div>
+
+		<div class="pt_menu_rbutton">
+			<svg class="pt_menu_rbutton_icon" xmlns="./image/close.svg">
+
+			</svg>
+		</div>
+		<nav class="pt_nav">
+			<div class="pt_body">
+				<div class="pt_midmenu_bg">
+					<div style="width: 100%;position: absolute;height: 105%;">
+						<div class="pt_midbg_top">
+							<div class="pt_midbg_tleft pt_mnbg_angle"></div>
+							<div class="pt_midbg_tmid pt_mnbg_side"></div>
+							<div class="pt_midbg_tright pt_mnbg_angle"></div>
+						</div>
+						<div class="pt_midbg_mid">
+							<div class="pt_midbg_mleft"></div>
+							<div class="pt_midbg_mmid pt_mnbg_side">
+							</div>
+							<div class="pt_midbg_mright"></div>
+						</div>
+						<div class="pt_midbg_bottom">
+							<div class="pt_midbg_bleft pt_mnbg_angle"></div>
+							<div class="pt_midbg_bmid pt_mnbg_side"></div>
+							<div class="pt_midbg_bright pt_mnbg_angle"></div>
+						</div>
+					</div>
+					<div class="pt_midmenu">
+						<ul class="">
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-2</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-3</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公1
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公2
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公3
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公1
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公2
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公3
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公2-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公2-2</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公2-3</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="pt_midmenu_card">
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+									<span class="pt_title">
+										<span id="icon">¤</span>
+										<span class="pt_text">协同办公1-1</span>
+									</span>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+								<div class="d pt_midmenu_box">
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+									<div class="pt_midmenuitem">
+										<div id="icon">¤</div>
+										协同办公
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</nav>
+
+	<!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+	<script>
+		let button = document.querySelector(".pt_menu_lbutton");
+		let pt_bg = document.querySelector(".pt_bg")
+		let rbutton = document.querySelector(".pt_menu_rbutton");
+		let pt_menu = document.querySelector(".pt_menu");
+		let pt_nav = document.querySelector(".pt_nav")
+		let pt_cb = document.querySelectorAll(".pt_cardbutton")
+		let midmenu = document.querySelectorAll(".pt_midmenuitem")
+		let midmenus = document.querySelector(".pt_menuitems")
+		let ul = document.querySelector(".pt_midmenu ul");
+		let lis = ul.children
+		let pt_midmenu = document.querySelector(".pt_midmenu")
+		pt_menu.check = false
+		button.addEventListener("click", () => { pull(); })
+		rbutton.children[0].addEventListener("click", () => { pack(); })
+		midmenu.forEach(i => {
+			i.addEventListener("click", () => { pack(); })
+		})
+		lis[0].index = 1
+		let leng = ul.children.length;
+		ul.style.width = leng * 100 + "%"
+		let mitem = document.querySelectorAll(".pt_menuitem");
+		mitem.forEach((i, d) => {
+			i.addEventListener("click", () => {
+				pt_midmenu.scrollTop = 0
+			})
+			let title = lis[d].children[0].querySelectorAll(".pt_title");
+			let pt_box = lis[d].querySelectorAll(".pt_midmenu_box");
+			for (var i in title) { title[i].index = 0 }
+			title[0].index=1
+			title.forEach((i, d) => {
+				if (i.index == 1) {
+					i.classList.add("pt_title_index");
+					pt_box[d].style.display = "flex"
+				} else if (i.index == 0) {
+					i.className = "pt_title";
+					pt_box[d].style.display = "none"
+				}
+				i.addEventListener("mouseover", () => {
+					title.forEach(v => { v.index = 0; })
+					i.index = 1;
+					title.forEach((v, t) => {
+						if (v.index == 1) {
+							v.classList.add("pt_title_index");
+							pt_box[t].style.display = "flex"
+						} else if (v.index == 0) {
+							v.className = "pt_title";
+							pt_box[t].style.display = "none"
+						}
+					})
+				})
+
+			})
+		})
+
+		// mitem.forEach((i, d) => {
+		// 	i.addEventListener("mouseover", () => {
+		// 		i.children[1].className = "block";
+		// 	})
+		// 	i.addEventListener("mouseout", () => {
+		// 		i.children[1].className = "hidden";
+		// 	})
+		// 	i.addEventListener("click", () => {
+		// 		/* transform: translate(-1100%,0); */
+		// 		ul.style.transform = "translate(" + (d * -(100 / leng)) + "%,0)"
+		// 	})
+		// })
+		let trans = 0;
+		pt_cb[0].addEventListener("click", i => {
+			if (trans > 0) {
+				trans = (trans - 10)
+
+				midmenus.style.transform = "translateX(" + trans * -1 + "%)"
+				pt_cb[0].style.cursor = "pointer"
+			}
+			if (trans <= 0) {
+				pt_cb[0].style.cursor = "no-drop";
+			}
+			if (trans < 50) {
+				pt_cb[1].style.cursor = "pointer"
+			}
+		})
+		pt_cb[1].addEventListener("click", i => {
+			if (trans < 50) {
+				trans = (trans + 10)
+				midmenus.style.transform = "translateX(" + trans * -1 + "%)"
+
+				pt_cb[1].style.cursor = "pointer"
+			}
+			if (trans > 0) {
+				pt_cb[0].style.cursor = "pointer"
+			}
+			if (trans >= 50) {
+				pt_cb[1].style.cursor = "no-drop";
+			}
+		})
+		function pull() {
+			if (!pt_menu.check) {
+				if (pt_menu.classList.contains("pt_menu_b")) {
+					pt_menu.classList.remove("pt_menu_b");
+					pt_nav.classList.remove("pt_nav_b");
+					rbutton.classList.remove("pt_menu_b");
+					button.classList.remove("pt_scale_b");
+					pt_cb.forEach(i => { i.classList.remove("pt_menu_b") });
+					pt_bg.classList.remove("hidden");
+				};
+				pt_menu.classList.add("pt_menu_a");
+				pt_nav.classList.add("pt_nav_a");
+				rbutton.classList.add("pt_menu_a");
+				button.classList.add("pt_scale_a");
+				pt_cb.forEach(i => { i.classList.add("pt_menu_a") });
+				pt_bg.classList.add("block");
+				pt_menu.check = true
+			}
+		}
+		function pack() {
+			console.log(rbutton.children);
+			if (pt_menu.check) {
+				pt_menu.classList.remove("pt_menu_a");
+				pt_nav.classList.remove("pt_nav_a");
+				rbutton.classList.remove("pt_nav_a");
+				button.classList.remove("pt_scale_a");
+				pt_cb.forEach(i => { i.classList.remove("pt_menu_b") })
+				pt_bg.classList.remove("block");
+				pt_menu.check = false
+				pt_menu.classList.add("pt_menu_b");
+				pt_nav.classList.add("pt_nav_b");
+				rbutton.classList.add("pt_menu_b");
+				button.classList.add("pt_scale_b");
+				pt_cb.forEach(i => { i.classList.add("pt_menu_b") })
+				pt_bg.classList.add("hidden");
+				pt_menu.check = false
+			}
+		}
+	</script>
+</body>
+
+</html>
